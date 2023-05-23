@@ -43,12 +43,11 @@ namespace WindowsFormsApp1
 
         }
         int edit  ;
-        int delstatus;
         private void button1_Click(object sender, EventArgs e)
         {
             edit = 0;
             Mainclass.resetEnable(panel1);
-            delstatus = 0 ;
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -120,7 +119,6 @@ namespace WindowsFormsApp1
             if (e.RowIndex != -1 && e.ColumnIndex != -1)
             {
                 edit = 1;
-                delstatus = 1;
                 Mainclass.ControlDisable(panel1);
                 DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
                 roleId = Convert.ToInt16(row.Cells["ID"].Value.ToString());

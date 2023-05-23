@@ -20,7 +20,7 @@ namespace WindowsFormsApp1
             Mainclass.showWindow(IT, MDI.ActiveForm);
             this.Close();
         }
-        int edit,delestatus;
+        int edit;
         Int64 cusID;
         private void button1_Click(object sender, EventArgs e)
         {
@@ -100,7 +100,6 @@ namespace WindowsFormsApp1
             if (e.RowIndex != -1 && e.ColumnIndex != -1)
             {
                 edit = 1;
-                delestatus = 1;
                 Mainclass.ControlDisable(panel1);
                 DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
                 cusID = Convert.ToInt64(row.Cells["ID"].Value.ToString());

@@ -23,7 +23,7 @@ namespace WindowsFormsApp1
         {
 
         }
-        int edit, delestatus;
+        int edit;
         private void button1_Click(object sender, EventArgs e)
         {
             edit = 0;
@@ -92,7 +92,6 @@ namespace WindowsFormsApp1
             if (e.RowIndex != -1 && e.ColumnIndex != -1)
             {
                 edit = 1;
-                delestatus = 1;
                 Mainclass.ControlDisable(panel1);
                 DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
                 fID = Convert.ToInt16(row.Cells["ID"].Value.ToString());

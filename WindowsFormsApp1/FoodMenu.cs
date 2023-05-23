@@ -28,5 +28,10 @@ namespace WindowsFormsApp1
         {
             label2.Text = Retreival.USER;
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

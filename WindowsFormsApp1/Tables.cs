@@ -33,7 +33,7 @@ namespace WindowsFormsApp1
             Retreival.loaditems("st_getfloors", FloorDD, "ID", "Floor");
             FloorDD.SelectedIndex = -1;
         }
-        int edit, delestatus;
+        int edit;
         int TableID;
         private void button3_Click(object sender, EventArgs e)
         {
@@ -106,7 +106,6 @@ namespace WindowsFormsApp1
             if (e.RowIndex != -1 && e.ColumnIndex != -1)
             {
                 edit = 1;
-                delestatus = 1;
                 Mainclass.ControlDisable(panel1);
                 DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
                 TableID = Convert.ToInt32(row.Cells["ID"].Value.ToString());

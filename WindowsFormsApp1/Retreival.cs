@@ -149,10 +149,10 @@ namespace WindowsFormsApp1
                 cb.ValueMember = vMember;
                 cb.DataSource= dt;
             }
-            catch(Exception)
+            catch(Exception ex)
             {
 
-                throw;  
+                MessageBox.Show(ex.Message);
             }
 
         }
