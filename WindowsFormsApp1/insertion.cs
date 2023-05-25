@@ -10,6 +10,30 @@ namespace WindowsFormsApp1
 {
     internal class insertion
     {
+        public static void insertfoodmenu(string name,Int16 cate,float price,Int16 status)
+        {
+            try
+            {
+                Mainclass.con.Open();
+                SqlCommand cmd = new SqlCommand("st_insertfoodcate", Mainclass.con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@name", name);
+                cmd.Parameters.AddWithValue("@catID", cate);
+                cmd.Parameters.AddWithValue("@price", price);
+                cmd.Parameters.AddWithValue("@status", status);
+                int res = cmd.ExecuteNonQuery();
+                Mainclass.con.Close();
+                if (res > 0)
+                {
+                    Mainclass.showMessge(name + "add successfully into the system", "success");
+                }
+            }
+            catch (Exception ex)
+            {
+                Mainclass.con.Close();
+                Mainclass.showMessge(ex.Message, "Error");
+            }
+        }
         public static void insertfoodcate(string Role)
         {
             try
@@ -124,6 +148,7 @@ namespace WindowsFormsApp1
         {
             try
             {
+                Mainclass.con.Open();
                 SqlCommand cmd = new SqlCommand("st_insertUser", Mainclass.con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@name", name);
@@ -132,7 +157,7 @@ namespace WindowsFormsApp1
                 cmd.Parameters.AddWithValue("address", address);
                 cmd.Parameters.AddWithValue("@phone", phone);
                 cmd.Parameters.AddWithValue("@roleId", roleId);
-                Mainclass.con.Open();
+                
                 int res = cmd.ExecuteNonQuery();
                 Mainclass.con.Close();
                 if (res > 0)
@@ -150,12 +175,12 @@ namespace WindowsFormsApp1
         {
             try
             {
+                Mainclass.con.Open();
                 SqlCommand cmd = new SqlCommand("st_insertCustomer", Mainclass.con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@name", name);
                 cmd.Parameters.AddWithValue("@phone", phone);
                 cmd.Parameters.AddWithValue("@address", address);
-                Mainclass.con.Open();
                 int res = cmd.ExecuteNonQuery();
                 Mainclass.con.Close();
                 if (res > 0)

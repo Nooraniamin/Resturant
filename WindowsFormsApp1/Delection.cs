@@ -13,6 +13,7 @@ namespace WindowsFormsApp1
         {
             try
             {
+                Mainclass.con.Open();
                 SqlCommand cmd = new SqlCommand(procedure, Mainclass.con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 if (value1 != 0)
@@ -24,7 +25,6 @@ namespace WindowsFormsApp1
                     cmd.Parameters.AddWithValue(param, value2);
 
                 }
-                Mainclass.con.Open();
                 int res = cmd.ExecuteNonQuery();
                 Mainclass.con.Close();
                 if (res > 0)
@@ -54,7 +54,6 @@ namespace WindowsFormsApp1
                     cmd.Parameters.AddWithValue(param, value2);
 
                 }
-                Mainclass.con.Open();
                 int res = cmd.ExecuteNonQuery();
                 Mainclass.con.Close();
                 if (res > 0)

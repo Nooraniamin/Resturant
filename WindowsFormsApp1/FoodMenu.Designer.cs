@@ -43,16 +43,36 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.button5 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.CateDD = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.name_txt = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.price_txt = new System.Windows.Forms.TextBox();
+            this.statusDD = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.SNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.catID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Catname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2.SuspendLayout();
             this.panel5.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.groupBox2);
             this.panel2.Controls.Add(this.panel5);
             this.panel2.Controls.Add(this.panel4);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -86,6 +106,7 @@
             this.button6.TabIndex = 6;
             this.button6.Text = "&VIEW";
             this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // groupBox1
             // 
@@ -115,6 +136,7 @@
             this.button4.TabIndex = 4;
             this.button4.Text = "&DELETE";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
@@ -126,6 +148,7 @@
             this.button3.TabIndex = 4;
             this.button3.Text = "&SAVE";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -137,6 +160,7 @@
             this.button2.TabIndex = 1;
             this.button2.Text = "&EDIT";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -174,6 +198,14 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.panel1.Controls.Add(this.statusDD);
+            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.price_txt);
+            this.panel1.Controls.Add(this.CateDD);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.name_txt);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -214,6 +246,176 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Welcome";
             // 
+            // CateDD
+            // 
+            this.CateDD.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CateDD.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.CateDD.FormattingEnabled = true;
+            this.CateDD.Location = new System.Drawing.Point(12, 243);
+            this.CateDD.Name = "CateDD";
+            this.CateDD.Size = new System.Drawing.Size(270, 24);
+            this.CateDD.TabIndex = 11;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(15, 224);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(73, 16);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Categories";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(15, 172);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(75, 16);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Menu Items";
+            // 
+            // name_txt
+            // 
+            this.name_txt.Location = new System.Drawing.Point(12, 191);
+            this.name_txt.MaxLength = 20;
+            this.name_txt.Name = "name_txt";
+            this.name_txt.Size = new System.Drawing.Size(270, 22);
+            this.name_txt.TabIndex = 8;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(15, 286);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(38, 16);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "Price";
+            // 
+            // price_txt
+            // 
+            this.price_txt.Location = new System.Drawing.Point(12, 305);
+            this.price_txt.MaxLength = 20;
+            this.price_txt.Name = "price_txt";
+            this.price_txt.Size = new System.Drawing.Size(270, 22);
+            this.price_txt.TabIndex = 12;
+            this.price_txt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // statusDD
+            // 
+            this.statusDD.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.statusDD.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.statusDD.FormattingEnabled = true;
+            this.statusDD.Items.AddRange(new object[] {
+            "Available",
+            "Not Available"});
+            this.statusDD.Location = new System.Drawing.Point(12, 362);
+            this.statusDD.Name = "statusDD";
+            this.statusDD.Size = new System.Drawing.Size(270, 24);
+            this.statusDD.TabIndex = 15;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(15, 343);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(44, 16);
+            this.label6.TabIndex = 14;
+            this.label6.Text = "Status";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.dataGridView1);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox2.Location = new System.Drawing.Point(0, 139);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(1070, 516);
+            this.groupBox2.TabIndex = 6;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "groupBox2";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.SNO,
+            this.ID,
+            this.name1,
+            this.catID,
+            this.Catname,
+            this.price,
+            this.status});
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(3, 18);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(1064, 495);
+            this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // SNO
+            // 
+            this.SNO.HeaderText = "#";
+            this.SNO.MinimumWidth = 6;
+            this.SNO.Name = "SNO";
+            this.SNO.ReadOnly = true;
+            this.SNO.Width = 125;
+            // 
+            // ID
+            // 
+            this.ID.HeaderText = "ID";
+            this.ID.MinimumWidth = 6;
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Visible = false;
+            this.ID.Width = 125;
+            // 
+            // name1
+            // 
+            this.name1.HeaderText = "Name";
+            this.name1.MinimumWidth = 6;
+            this.name1.Name = "name1";
+            this.name1.ReadOnly = true;
+            this.name1.Width = 250;
+            // 
+            // catID
+            // 
+            this.catID.HeaderText = "CatID";
+            this.catID.MinimumWidth = 6;
+            this.catID.Name = "catID";
+            this.catID.ReadOnly = true;
+            this.catID.Visible = false;
+            this.catID.Width = 250;
+            // 
+            // Catname
+            // 
+            this.Catname.HeaderText = "Categeries";
+            this.Catname.MinimumWidth = 6;
+            this.Catname.Name = "Catname";
+            this.Catname.ReadOnly = true;
+            this.Catname.Width = 250;
+            // 
+            // price
+            // 
+            this.price.HeaderText = "price";
+            this.price.MinimumWidth = 6;
+            this.price.Name = "price";
+            this.price.ReadOnly = true;
+            this.price.Width = 250;
+            // 
+            // status
+            // 
+            this.status.HeaderText = "status";
+            this.status.MinimumWidth = 6;
+            this.status.Name = "status";
+            this.status.ReadOnly = true;
+            this.status.Width = 250;
+            // 
             // FoodMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -232,8 +434,11 @@
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -255,5 +460,22 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox statusDD;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox price_txt;
+        private System.Windows.Forms.ComboBox CateDD;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox name_txt;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SNO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn name1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn catID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Catname;
+        private System.Windows.Forms.DataGridViewTextBoxColumn price;
+        private System.Windows.Forms.DataGridViewTextBoxColumn status;
     }
 }

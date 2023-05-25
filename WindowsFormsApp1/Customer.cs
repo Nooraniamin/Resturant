@@ -100,7 +100,7 @@ namespace WindowsFormsApp1
             if (e.RowIndex != -1 && e.ColumnIndex != -1)
             {
                 edit = 1;
-                Mainclass.ControlDisable(panel1);
+                Mainclass.ControlDisable(panel3);
                 DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
                 cusID = Convert.ToInt64(row.Cells["ID"].Value.ToString());
                 cusname_txt.Text = row.Cells["name1"].Value.ToString();

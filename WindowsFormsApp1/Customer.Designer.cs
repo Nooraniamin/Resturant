@@ -38,14 +38,12 @@
             this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel5 = new System.Windows.Forms.Panel();
             this.button6 = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.address_txt = new System.Windows.Forms.TextBox();
@@ -56,11 +54,11 @@
             this.button5 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.cusname_txt = new System.Windows.Forms.TextBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel2.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel5.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -121,6 +119,7 @@
             this.ID.MinimumWidth = 6;
             this.ID.Name = "ID";
             this.ID.ReadOnly = true;
+            this.ID.Visible = false;
             this.ID.Width = 125;
             // 
             // name1
@@ -129,7 +128,7 @@
             this.name1.MinimumWidth = 6;
             this.name1.Name = "name1";
             this.name1.ReadOnly = true;
-            this.name1.Width = 125;
+            this.name1.Width = 333;
             // 
             // Phone
             // 
@@ -138,7 +137,7 @@
             this.Phone.MinimumWidth = 6;
             this.Phone.Name = "Phone";
             this.Phone.ReadOnly = true;
-            this.Phone.Width = 125;
+            this.Phone.Width = 333;
             // 
             // Address
             // 
@@ -147,16 +146,16 @@
             this.Address.MinimumWidth = 6;
             this.Address.Name = "Address";
             this.Address.ReadOnly = true;
-            this.Address.Width = 125;
+            this.Address.Width = 333;
             // 
             // panel5
             // 
-            this.panel5.Controls.Add(this.button6);
             this.panel5.Controls.Add(this.groupBox1);
-            this.panel5.Controls.Add(this.button4);
             this.panel5.Controls.Add(this.button3);
-            this.panel5.Controls.Add(this.button2);
+            this.panel5.Controls.Add(this.button6);
             this.panel5.Controls.Add(this.button1);
+            this.panel5.Controls.Add(this.button4);
+            this.panel5.Controls.Add(this.button2);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel5.Location = new System.Drawing.Point(0, 73);
             this.panel5.Name = "panel5";
@@ -168,79 +167,13 @@
             this.button6.BackColor = System.Drawing.Color.White;
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button6.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.button6.Location = new System.Drawing.Point(647, 0);
+            this.button6.Location = new System.Drawing.Point(595, 0);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(159, 66);
+            this.button6.Size = new System.Drawing.Size(146, 63);
             this.button6.TabIndex = 6;
             this.button6.Text = "&VIEW";
             this.button6.UseVisualStyleBackColor = false;
             this.button6.Click += new System.EventHandler(this.button6_Click);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Location = new System.Drawing.Point(808, 6);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(254, 77);
-            this.groupBox1.TabIndex = 5;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Sea&rch";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(19, 31);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(229, 22);
-            this.textBox1.TabIndex = 0;
-            // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.Color.White;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.button4.Location = new System.Drawing.Point(495, 0);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(153, 66);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "&DELETE";
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // button3
-            // 
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.button3.Location = new System.Drawing.Point(336, 0);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(162, 66);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "&SAVE";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // button2
-            // 
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.button2.Location = new System.Drawing.Point(169, 0);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(169, 66);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "&EDIT";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button1
-            // 
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.button1.Location = new System.Drawing.Point(0, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(170, 66);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "&ADD";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // panel4
             // 
@@ -263,6 +196,58 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "User";
             // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.White;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.button4.Location = new System.Drawing.Point(463, 0);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(136, 63);
+            this.button4.TabIndex = 4;
+            this.button4.Text = "&DELETE";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.White;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.button3.Location = new System.Drawing.Point(171, 0);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(158, 66);
+            this.button3.TabIndex = 4;
+            this.button3.Text = "&SAVE";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.White;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.button2.Location = new System.Drawing.Point(324, 0);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(143, 66);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "&EDIT";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.White;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.button1.Location = new System.Drawing.Point(6, 0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(167, 66);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "&ADD";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.DeepSkyBlue;
@@ -283,7 +268,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(15, 252);
+            this.label5.Location = new System.Drawing.Point(24, 245);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(58, 16);
             this.label5.TabIndex = 11;
@@ -291,7 +276,7 @@
             // 
             // address_txt
             // 
-            this.address_txt.Location = new System.Drawing.Point(12, 271);
+            this.address_txt.Location = new System.Drawing.Point(21, 264);
             this.address_txt.MaxLength = 100;
             this.address_txt.Multiline = true;
             this.address_txt.Name = "address_txt";
@@ -303,7 +288,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(15, 180);
+            this.label4.Location = new System.Drawing.Point(24, 173);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(46, 16);
             this.label4.TabIndex = 9;
@@ -311,7 +296,7 @@
             // 
             // phone_txt
             // 
-            this.phone_txt.Location = new System.Drawing.Point(12, 199);
+            this.phone_txt.Location = new System.Drawing.Point(21, 192);
             this.phone_txt.MaxLength = 15;
             this.phone_txt.Name = "phone_txt";
             this.phone_txt.Size = new System.Drawing.Size(270, 22);
@@ -322,7 +307,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(15, 115);
+            this.label3.Location = new System.Drawing.Point(24, 108);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(44, 16);
             this.label3.TabIndex = 7;
@@ -363,11 +348,21 @@
             // 
             // cusname_txt
             // 
-            this.cusname_txt.Location = new System.Drawing.Point(12, 134);
+            this.cusname_txt.Location = new System.Drawing.Point(21, 127);
             this.cusname_txt.Name = "cusname_txt";
             this.cusname_txt.Size = new System.Drawing.Size(270, 22);
             this.cusname_txt.TabIndex = 6;
             this.cusname_txt.TextChanged += new System.EventHandler(this.cusname_txt_TextChanged);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.groupBox1.Location = new System.Drawing.Point(747, 0);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(289, 66);
+            this.groupBox1.TabIndex = 7;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Serach";
             // 
             // Customer
             // 
@@ -384,8 +379,6 @@
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel5.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -401,8 +394,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
@@ -426,5 +417,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn name1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Phone;
         private System.Windows.Forms.DataGridViewTextBoxColumn Address;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }

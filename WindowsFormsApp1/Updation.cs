@@ -13,15 +13,40 @@ namespace WindowsFormsApp1
 {
     internal class Updation
     {
+        public static void updatefoodmenu(string name, Int16 cate, float price, Int16 status,int mid)
+        {
+            try
+            {
+                Mainclass.con.Open();
+                SqlCommand cmd = new SqlCommand("st_updatefoodcate", Mainclass.con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@name", name);
+                cmd.Parameters.AddWithValue("@catID", cate);
+                cmd.Parameters.AddWithValue("@price", price);
+                cmd.Parameters.AddWithValue("@status", status);
+                cmd.Parameters.AddWithValue("@mid", mid);
+                int res = cmd.ExecuteNonQuery();
+                Mainclass.con.Close();
+                if (res > 0)
+                {
+                    Mainclass.showMessge(name + "updated successfully into the system", "success");
+                }
+            }
+            catch (Exception ex)
+            {
+                Mainclass.con.Close();
+                Mainclass.showMessge(ex.Message, "Error");
+            }
+        }
         public static void updatefoodcate(string role, Int16 roleId)
         {
             try
             {
+                Mainclass.con.Open();
                 SqlCommand cmd = new SqlCommand("st_updatefoodcate", Mainclass.con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@name", role);
                 cmd.Parameters.AddWithValue("@rid", roleId);
-                Mainclass.con.Open();
                 int res = cmd.ExecuteNonQuery();
                 Mainclass.con.Close();
                 if (res > 0)
@@ -110,11 +135,11 @@ namespace WindowsFormsApp1
         {
             try
             {
+                Mainclass.con.Open();
                 SqlCommand cmd = new SqlCommand("st_updateRoles", Mainclass.con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@name", role);
                 cmd.Parameters.AddWithValue("@rid", roleId);
-                Mainclass.con.Open();
                 int res = cmd.ExecuteNonQuery();
                 Mainclass.con.Close();
                 if(res > 0)
@@ -132,6 +157,7 @@ namespace WindowsFormsApp1
         {
             try
             {
+                Mainclass.con.Open();
                 SqlCommand cmd = new SqlCommand("st_updateUser", Mainclass.con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@name", name);
@@ -141,7 +167,6 @@ namespace WindowsFormsApp1
                 cmd.Parameters.AddWithValue("@phone", phone);
                 cmd.Parameters.AddWithValue("@roleId", roleId);
                 cmd.Parameters.AddWithValue("@userId", userId);
-                Mainclass.con.Open();
                 int res = cmd.ExecuteNonQuery();
                 Mainclass.con.Close();
                 if (res > 0)

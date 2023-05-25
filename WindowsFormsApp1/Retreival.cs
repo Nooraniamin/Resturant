@@ -10,10 +10,37 @@ namespace WindowsFormsApp1
 {
     internal class Retreival
     {
+        public static void getfoodmenu(DataGridView gv, DataGridViewColumn mid, DataGridViewColumn m_name, DataGridViewColumn catId, DataGridViewColumn catname, DataGridViewColumn price, DataGridViewColumn status)
+        {
+            try
+            {
+                Mainclass.con.Open();
+                SqlCommand cmd = new SqlCommand("st_getMenuItem", Mainclass.con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                mid.DataPropertyName = dt.Columns["Menu ID"].ToString();
+                m_name.DataPropertyName = dt.Columns["Menu Items"].ToString();
+                price.DataPropertyName = dt.Columns["Price"].ToString();
+                status.DataPropertyName = dt.Columns["Status"].ToString();
+                catId.DataPropertyName = dt.Columns["Cateergory ID"].ToString();
+                catname.DataPropertyName = dt.Columns["Category"].ToString();
+                gv.DataSource = dt;
+                Mainclass.sno(gv, "SNO");
+                Mainclass.con.Close();
+            }
+            catch (Exception ex)
+            {
+                Mainclass.con.Close();
+                Mainclass.showMessge(ex.Message, "Error");
+            }
+        }
         public static void getfood(DataGridView gv, DataGridViewColumn roleIDGV, DataGridViewColumn roleNameGV)
         {
             try
             {
+                Mainclass.con.Open();
                 SqlCommand cmd = new SqlCommand("st_getfoodcate", Mainclass.con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -23,9 +50,11 @@ namespace WindowsFormsApp1
                 roleNameGV.DataPropertyName = dt.Columns["Food Categories"].ToString();
                 gv.DataSource = dt;
                 Mainclass.sno(gv, "SNO");
+                Mainclass.con.Close();
             }
             catch (Exception ex)
             {
+                Mainclass.con.Close();
                 Mainclass.showMessge(ex.Message, "Error");
             }
         }
@@ -33,6 +62,7 @@ namespace WindowsFormsApp1
         {
             try
             {
+                Mainclass.con.Open();
                 SqlCommand cmd = new SqlCommand("st_gettable", Mainclass.con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -45,9 +75,11 @@ namespace WindowsFormsApp1
                 chairs.DataPropertyName = dt.Columns["Chairs"].ToString();
                 gv.DataSource = dt;
                 Mainclass.sno(gv, "SNO");
+                Mainclass.con.Close();
             }
             catch (Exception ex)
             {
+                Mainclass.con.Close();
                 Mainclass.showMessge(ex.Message, "Error");
             }
         }
@@ -55,6 +87,7 @@ namespace WindowsFormsApp1
         {
             try
             {
+                Mainclass.con.Open();
                 SqlCommand cmd = new SqlCommand("st_getfloors", Mainclass.con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -65,9 +98,11 @@ namespace WindowsFormsApp1
                 floorNumber.DataPropertyName = dt.Columns["Floor Number"].ToString();
                 gv.DataSource = dt;
                 Mainclass.sno(gv, "SNO");
+                Mainclass.con.Close();
             }
             catch (Exception ex)
             {
+                Mainclass.con.Close();
                 Mainclass.showMessge(ex.Message, "Error");
             }
         }
@@ -75,6 +110,7 @@ namespace WindowsFormsApp1
         {
             try
             {
+                Mainclass.con.Open();
                 SqlCommand cmd = new SqlCommand("st_getCustomers", Mainclass.con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -86,9 +122,11 @@ namespace WindowsFormsApp1
                 address.DataPropertyName = dt.Columns["Address"].ToString();
                 gv.DataSource = dt;
                 Mainclass.sno(gv, "SNO");
+                Mainclass.con.Close();
             }
             catch (Exception ex)
             {
+                Mainclass.con.Close();
                 Mainclass.showMessge(ex.Message, "Error");
             }
         }
@@ -96,6 +134,7 @@ namespace WindowsFormsApp1
         {
             try
             {
+                Mainclass.con.Open();
                 SqlCommand cmd = new SqlCommand("st_getRoles", Mainclass.con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -105,9 +144,11 @@ namespace WindowsFormsApp1
                 roleNameGV.DataPropertyName = dt.Columns["Role"].ToString();
                 gv.DataSource = dt;
                 Mainclass.sno(gv, "SNO");
+                Mainclass.con.Close();
             }
             catch (Exception ex)
             {
+                Mainclass.con.Close();
                 Mainclass.showMessge(ex.Message, "Error");
             }
         }
@@ -201,11 +242,13 @@ namespace WindowsFormsApp1
                             USER = reader["User"].ToString();
                             ROLE = reader["Role"].ToString();
                             status = true;
+                            
                         }
                         else
                         {
                             Mainclass.showMessge("Invalid User and Password ", "Error");
                             status = false;
+                            
                         }
                     }
                 }
@@ -213,11 +256,14 @@ namespace WindowsFormsApp1
                 {
                     Mainclass.showMessge("Invalid User and Password ", "Error");
                     status = false;
+                    
                 }
+                Mainclass.con.Close();
             }
             catch (Exception ex)
             {
                 Mainclass.showMessge(ex.Message, "Error");
+                Mainclass.con.Close();
             }
             return status;
         }
