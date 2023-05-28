@@ -29,6 +29,7 @@ namespace WindowsFormsApp1
         {
             label2.Text = Retreival.USER;
             Retreival.loaditems("st_getfoodcate", CateDD, "Food ID", "Food Categories");
+            CateDD.SelectedIndex = -1;
         }
         int edit;
         private void button1_Click(object sender, EventArgs e)
@@ -51,24 +52,24 @@ namespace WindowsFormsApp1
                 if (edit == 0)
                 {
 
-                    insertion.insertfoodmenu(name_txt.Text, Convert.ToInt16(CateDD.SelectedValue.ToString()),Convert.ToSingle(price_txt),stus);
+                    insertion.insertfoodmenu(name_txt.Text, Convert.ToInt16(CateDD.SelectedValue.ToString()),Convert.ToSingle(price_txt.Text),stus,pictureBox1.Image);
                     Mainclass.resetDisable(panel1);
-                    Retreival.getfoodmenu(dataGridView1, ID, name1, catID, Catname, price, status);
+                    Retreival.getfoodmenu(dataGridView1, ID, name1, catID, Catname, price, status, image);
                 }
                 else if (edit == 1)
                 {
 
 
-                    Updation.updatefoodmenu(name_txt.Text, Convert.ToInt16(CateDD.SelectedValue.ToString()), Convert.ToSingle(price_txt), stus,m_id);
+                    Updation.updatefoodmenu(name_txt.Text, Convert.ToInt16(CateDD.SelectedValue.ToString()), Convert.ToSingle(price_txt.Text), stus,m_id, pictureBox1.Image);
                     Mainclass.resetDisable(panel1);
-                    Retreival.getfoodmenu(dataGridView1, ID, name1, catID, Catname, price, status);
+                    Retreival.getfoodmenu(dataGridView1, ID, name1, catID, Catname, price, status, image);
                 }
             }
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-            Retreival.getfoodmenu(dataGridView1, ID, name1, catID, Catname, price, status);
+            Retreival.getfoodmenu(dataGridView1, ID, name1, catID, Catname, price, status, image);
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -78,7 +79,7 @@ namespace WindowsFormsApp1
             {
                 Deletion.delete("st_DeleteMenuItem", "@mid", m_id);
                 Mainclass.resetDisable(panel1);
-                Retreival.getfoodmenu(dataGridView1, ID, name1, catID, Catname, price, status);
+                Retreival.getfoodmenu(dataGridView1, ID, name1, catID, Catname, price, status, image);
 
             }
         }
@@ -95,6 +96,18 @@ namespace WindowsFormsApp1
                 CateDD.SelectedValue = row.Cells["catID"].Value;
                 price_txt.Text = row.Cells["price"].Value.ToString();
                 statusDD.SelectedItem = row.Cells["status"].Value.ToString();
+               // pictureBox1.Image = Image.FromFile(row.Cells["image"].Value.ToString());
+            }
+        }
+
+        private void loadbutton_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = openFileDialog1.ShowDialog();
+            if (dr == DialogResult.OK)
+            {
+                Image im = new Bitmap(openFileDialog1.FileName);
+                pictureBox1.Image = im;
+                pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             }
         }
     }

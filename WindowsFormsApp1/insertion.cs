@@ -5,22 +5,29 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
+using System.IO;
+using System.Drawing.Imaging;
 
 namespace WindowsFormsApp1
 {
     internal class insertion
     {
-        public static void insertfoodmenu(string name,Int16 cate,float price,Int16 status)
+        public static void insertfoodmenu(string name,Int16 cate,float price,Int16 status, Image img)
         {
             try
             {
+                MemoryStream sa = new MemoryStream();
+                img.Save(sa, ImageFormat.Png);
+                byte[] data = sa.ToArray();
                 Mainclass.con.Open();
-                SqlCommand cmd = new SqlCommand("st_insertfoodcate", Mainclass.con);
+                SqlCommand cmd = new SqlCommand("st_insertMenuItem", Mainclass.con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@name", name);
                 cmd.Parameters.AddWithValue("@catID", cate);
                 cmd.Parameters.AddWithValue("@price", price);
                 cmd.Parameters.AddWithValue("@status", status);
+                cmd.Parameters.AddWithValue("@image", data);
                 int res = cmd.ExecuteNonQuery();
                 Mainclass.con.Close();
                 if (res > 0)

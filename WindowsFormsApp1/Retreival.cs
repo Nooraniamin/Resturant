@@ -10,7 +10,7 @@ namespace WindowsFormsApp1
 {
     internal class Retreival
     {
-        public static void getfoodmenu(DataGridView gv, DataGridViewColumn mid, DataGridViewColumn m_name, DataGridViewColumn catId, DataGridViewColumn catname, DataGridViewColumn price, DataGridViewColumn status)
+        public static void getfoodmenu(DataGridView gv, DataGridViewColumn mid, DataGridViewColumn m_name, DataGridViewColumn catId, DataGridViewColumn catname, DataGridViewColumn price, DataGridViewColumn status, DataGridViewColumn img)
         {
             try
             {
@@ -26,6 +26,7 @@ namespace WindowsFormsApp1
                 status.DataPropertyName = dt.Columns["Status"].ToString();
                 catId.DataPropertyName = dt.Columns["Cateergory ID"].ToString();
                 catname.DataPropertyName = dt.Columns["Category"].ToString();
+                img.DataPropertyName = dt.Columns["Image"].ToString();
                 gv.DataSource = dt;
                 Mainclass.sno(gv, "SNO");
                 Mainclass.con.Close();
@@ -177,23 +178,46 @@ namespace WindowsFormsApp1
                 Mainclass.showMessge(ex.Message, "Error");
             }
         }
-        public static void loaditems(string proc,ComboBox cb, string vMember, string dMember)
+        
+        public static void loaditems(string proc, ComboBox cb, string vMember, string dMember,string param=null,Int16 val =0)
         {
             try
             {
-                SqlCommand cmd = new SqlCommand(proc, Mainclass.con);
-                cmd.CommandType = CommandType.StoredProcedure;
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-                cb.DisplayMember = dMember;
-                cb.ValueMember = vMember;
-                cb.DataSource= dt;
+                if(param == null && val == 0)
+                {
+                    Mainclass.con.Open();
+                    SqlCommand cmd = new SqlCommand(proc, Mainclass.con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+                    cb.DisplayMember = dMember;
+                    cb.ValueMember = vMember;
+                    cb.DataSource = dt;
+                    Mainclass.con.Close();
+                    
+                }
+                else
+                {
+                    Mainclass.con.Open();
+                    SqlCommand cmd = new SqlCommand(proc, Mainclass.con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue(param, val);
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+                    cb.DisplayMember = dMember;
+                    cb.ValueMember = vMember;
+                    cb.DataSource = dt;
+                    Mainclass.con.Close();
+
+                }
+                
             }
             catch(Exception ex)
             {
-
-                MessageBox.Show(ex.Message);
+                Mainclass.con.Close();
+                Mainclass.showMessge(ex.Message,"Error");
             }
 
         }

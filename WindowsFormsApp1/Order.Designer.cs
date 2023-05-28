@@ -40,6 +40,23 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.phone_txt = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.OrderDD = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.tableDD = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.floorDD = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.button7 = new System.Windows.Forms.Button();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.price_txt = new System.Windows.Forms.TextBox();
+            this.itemDD = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.CateDD = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.button5 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -48,6 +65,7 @@
             this.groupBox1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -173,12 +191,205 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.panel1.Controls.Add(this.phone_txt);
+            this.panel1.Controls.Add(this.label10);
+            this.panel1.Controls.Add(this.OrderDD);
+            this.panel1.Controls.Add(this.label9);
+            this.panel1.Controls.Add(this.tableDD);
+            this.panel1.Controls.Add(this.label8);
+            this.panel1.Controls.Add(this.floorDD);
+            this.panel1.Controls.Add(this.label7);
+            this.panel1.Controls.Add(this.button7);
+            this.panel1.Controls.Add(this.numericUpDown1);
+            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.price_txt);
+            this.panel1.Controls.Add(this.itemDD);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.CateDD);
+            this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(314, 678);
             this.panel1.TabIndex = 4;
+            // 
+            // phone_txt
+            // 
+            this.phone_txt.Location = new System.Drawing.Point(11, 502);
+            this.phone_txt.MaxLength = 15;
+            this.phone_txt.Name = "phone_txt";
+            this.phone_txt.Size = new System.Drawing.Size(271, 22);
+            this.phone_txt.TabIndex = 27;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.ForeColor = System.Drawing.Color.White;
+            this.label10.Location = new System.Drawing.Point(15, 483);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(97, 16);
+            this.label10.TabIndex = 26;
+            this.label10.Text = "Phone Number";
+            this.label10.Click += new System.EventHandler(this.label10_Click);
+            // 
+            // OrderDD
+            // 
+            this.OrderDD.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.OrderDD.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.OrderDD.FormattingEnabled = true;
+            this.OrderDD.Items.AddRange(new object[] {
+            "Dine In",
+            "Take-away",
+            "Home Delivery"});
+            this.OrderDD.Location = new System.Drawing.Point(12, 353);
+            this.OrderDD.Name = "OrderDD";
+            this.OrderDD.Size = new System.Drawing.Size(270, 24);
+            this.OrderDD.TabIndex = 25;
+            this.OrderDD.SelectedIndexChanged += new System.EventHandler(this.OrderDD_SelectedIndexChanged);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(15, 334);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(90, 16);
+            this.label9.TabIndex = 24;
+            this.label9.Text = "Type of Order";
+            // 
+            // tableDD
+            // 
+            this.tableDD.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.tableDD.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.tableDD.FormattingEnabled = true;
+            this.tableDD.Location = new System.Drawing.Point(11, 449);
+            this.tableDD.Name = "tableDD";
+            this.tableDD.Size = new System.Drawing.Size(270, 24);
+            this.tableDD.TabIndex = 23;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(14, 430);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(43, 16);
+            this.label8.TabIndex = 22;
+            this.label8.Text = "Table";
+            // 
+            // floorDD
+            // 
+            this.floorDD.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.floorDD.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.floorDD.FormattingEnabled = true;
+            this.floorDD.Location = new System.Drawing.Point(12, 399);
+            this.floorDD.Name = "floorDD";
+            this.floorDD.Size = new System.Drawing.Size(270, 24);
+            this.floorDD.TabIndex = 21;
+            this.floorDD.SelectedIndexChanged += new System.EventHandler(this.floorDD_SelectedIndexChanged);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(15, 380);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(38, 16);
+            this.label7.TabIndex = 20;
+            this.label7.Text = "Floor";
+            // 
+            // button7
+            // 
+            this.button7.BackColor = System.Drawing.Color.OrangeRed;
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button7.ForeColor = System.Drawing.Color.White;
+            this.button7.Location = new System.Drawing.Point(18, 569);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(236, 66);
+            this.button7.TabIndex = 7;
+            this.button7.Text = "ADD TO &CART";
+            this.button7.UseVisualStyleBackColor = false;
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(11, 307);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(269, 22);
+            this.numericUpDown1.TabIndex = 19;
+            this.numericUpDown1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(14, 288);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(55, 16);
+            this.label6.TabIndex = 18;
+            this.label6.Text = "Quantity";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(14, 244);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(38, 16);
+            this.label4.TabIndex = 17;
+            this.label4.Text = "Price";
+            // 
+            // price_txt
+            // 
+            this.price_txt.Location = new System.Drawing.Point(12, 263);
+            this.price_txt.Name = "price_txt";
+            this.price_txt.Size = new System.Drawing.Size(269, 22);
+            this.price_txt.TabIndex = 16;
+            this.price_txt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // itemDD
+            // 
+            this.itemDD.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.itemDD.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.itemDD.FormattingEnabled = true;
+            this.itemDD.Location = new System.Drawing.Point(12, 216);
+            this.itemDD.Name = "itemDD";
+            this.itemDD.Size = new System.Drawing.Size(270, 24);
+            this.itemDD.TabIndex = 15;
+            this.itemDD.SelectedIndexChanged += new System.EventHandler(this.itemDD_SelectedIndexChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(15, 197);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(80, 16);
+            this.label3.TabIndex = 14;
+            this.label3.Text = "Select Items";
+            // 
+            // CateDD
+            // 
+            this.CateDD.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CateDD.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.CateDD.FormattingEnabled = true;
+            this.CateDD.Location = new System.Drawing.Point(12, 168);
+            this.CateDD.Name = "CateDD";
+            this.CateDD.Size = new System.Drawing.Size(270, 24);
+            this.CateDD.TabIndex = 13;
+            this.CateDD.SelectedIndexChanged += new System.EventHandler(this.CateDD_SelectedIndexChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(15, 149);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(114, 16);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "Select Categories";
             // 
             // panel3
             // 
@@ -231,6 +442,8 @@
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.ResumeLayout(false);
@@ -254,5 +467,22 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox price_txt;
+        private System.Windows.Forms.ComboBox itemDD;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox CateDD;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox phone_txt;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ComboBox OrderDD;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ComboBox tableDD;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox floorDD;
+        private System.Windows.Forms.Label label7;
     }
 }
