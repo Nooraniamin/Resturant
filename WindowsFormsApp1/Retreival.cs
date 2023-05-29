@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using System.IO;
+using System.Drawing;
+
 namespace WindowsFormsApp1
 {
     internal class Retreival
@@ -179,45 +182,77 @@ namespace WindowsFormsApp1
             }
         }
         
-        public static void loaditems(string proc, ComboBox cb, string vMember, string dMember,string param=null,Int16 val =0)
+        public static void loaditems(string proc, ComboBox cb, string vMember, string dMember)
         {
+            
             try
             {
-                if(param == null && val == 0)
-                {
-                    Mainclass.con.Open();
-                    SqlCommand cmd = new SqlCommand(proc, Mainclass.con);
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    SqlDataAdapter da = new SqlDataAdapter(cmd);
-                    DataTable dt = new DataTable();
-                    da.Fill(dt);
-                    cb.DisplayMember = dMember;
-                    cb.ValueMember = vMember;
-                    cb.DataSource = dt;
-                    Mainclass.con.Close();
-                    
-                }
-                else
-                {
-                    Mainclass.con.Open();
-                    SqlCommand cmd = new SqlCommand(proc, Mainclass.con);
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue(param, val);
-                    SqlDataAdapter da = new SqlDataAdapter(cmd);
-                    DataTable dt = new DataTable();
-                    da.Fill(dt);
-                    cb.DisplayMember = dMember;
-                    cb.ValueMember = vMember;
-                    cb.DataSource = dt;
-                    Mainclass.con.Close();
-
-                }
+                Mainclass.con.Open();
+                SqlCommand cmd = new SqlCommand(proc, Mainclass.con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                cb.DisplayMember = dMember;
+                cb.ValueMember = vMember;
+                cb.DataSource = dt;
+                Mainclass.con.Close();
+ 
+            }
+            catch(Exception)
+            {
+                throw;
                 
             }
-            catch(Exception ex)
+            
+        }
+        public static Image getimage(int mid)
+        {
+            Image I = null;
+            byte[] arr;
+            try
+            {
+                SqlCommand cmd = new SqlCommand("st_getimage", Mainclass.con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@mid", mid);
+                Mainclass.con.Open();
+                arr = (byte[])cmd.ExecuteScalar();
+                MemoryStream ms = new MemoryStream(arr);
+                I = Image.FromStream(ms);
+               
+
+            }
+            catch (Exception ex)
             {
                 Mainclass.con.Close();
-                Mainclass.showMessge(ex.Message,"Error");
+                Mainclass.showMessge(ex.Message, "Error");
+            }
+            return I;
+            
+        }
+        public static void loaditemssa(string proc, ComboBox cb, string vMember, string dMember, string param = null, Int16 val = 0)
+        {
+            
+            try
+            {
+                
+                SqlCommand cmd = new SqlCommand(proc, Mainclass.con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue(param, val);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                cb.DisplayMember = dMember;
+                cb.ValueMember = vMember;
+                cb.DataSource = dt;
+                
+                
+
+            }
+            catch (Exception ex)
+            {
+                Mainclass.showMessge(ex.Message, "Error");
+
             }
 
         }

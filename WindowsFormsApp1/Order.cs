@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using WindowsFormsApp1.Properties;
+
 namespace WindowsFormsApp1
 {
     public partial class Order : Form
@@ -28,11 +30,10 @@ namespace WindowsFormsApp1
         {
             label2.Text = Retreival.USER;
             Retreival.loaditems("st_getfoodcate", CateDD, "Food ID", "Food Categories");
-            CateDD.SelectedIndex = -1;
+            
             
             Retreival.loaditems("st_getfloors",floorDD , "ID", "Floor");
-            floorDD.SelectedIndex = -1;
-            tableDD.SelectedIndex = -1;
+             
         }
 
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
@@ -42,45 +43,55 @@ namespace WindowsFormsApp1
 
         private void CateDD_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-
-            try
-            {
-                Retreival.loaditems("st_getMenuItemWRtCategory", itemDD, "Menu ID", "Menu Items", "@cid", Convert.ToInt16(CateDD.SelectedValue.ToString()));
-                itemDD.SelectedIndex = -1;
-            }
-            catch (Exception ex)
-            {
-                Mainclass.showMessge(ex.Message, "Error");
-            }
-                
             
+            
+                Retreival.loaditemssa("st_getMenuItemWRtCategory", itemDD, "Menu ID", "Menu Items", "@cid", Convert.ToInt16(CateDD.SelectedValue.ToString()));
+                itemDD.SelectedIndex = -1;
+            
+
+
+
         }
         private void itemDD_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
+            if (itemDD.SelectedIndex == -1)
+            {
+                price_txt.Text = null;
+                pictureBox1.Image = null;
+            }
             try
             {
-                Mainclass.con.Open();
-                SqlCommand cmd = new SqlCommand("st_getpriceWRTMenuItems",Mainclass.con);
+
+                SqlCommand cmd = new SqlCommand("st_getpriceWRTMenuItems", Mainclass.con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@mid", Convert.ToInt32(itemDD.SelectedValue.ToString()));
-                price_txt.Text = cmd.ExecuteScalar().ToString();
+                Mainclass.con.Open();
+                price_txt.Text = Math.Round(Convert.ToDouble(cmd.ExecuteScalar().ToString()), 0).ToString();
                 Mainclass.con.Close();
+                Image I = Retreival.getimage(Convert.ToInt32(itemDD.SelectedValue.ToString()));
+                pictureBox1.Image = I;
+                pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+
+
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                Mainclass.con.Close();
-                Mainclass.showMessge(ex.Message, "Error");
+                    Mainclass.con.Close();
+                    Mainclass.showMessge(ex.Message, "Error");
             }
-            
+
+
+
+
+
         }
 
         private void floorDD_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
-                Retreival.loaditems("st_gettablesWRTFloor", tableDD, "Table ID", "Table Number", "@floorID", Convert.ToInt16(floorDD.SelectedValue.ToString()));
+                Retreival.loaditemssa("st_gettablesWRTFloor", tableDD, "Table ID", "Table Number", "@floorID", Convert.ToInt16(floorDD.SelectedValue.ToString()));
                 
             }
             catch (Exception ex)
