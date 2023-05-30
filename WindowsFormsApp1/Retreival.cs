@@ -187,7 +187,7 @@ namespace WindowsFormsApp1
             
             try
             {
-                Mainclass.con.Open();
+                
                 SqlCommand cmd = new SqlCommand(proc, Mainclass.con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -196,7 +196,7 @@ namespace WindowsFormsApp1
                 cb.DisplayMember = dMember;
                 cb.ValueMember = vMember;
                 cb.DataSource = dt;
-                Mainclass.con.Close();
+                
  
             }
             catch(Exception)
@@ -230,7 +230,7 @@ namespace WindowsFormsApp1
             return I;
             
         }
-        public static void loaditemssa(string proc, ComboBox cb, string vMember, string dMember, string param = null, Int16 val = 0)
+        public static void loaditemssa(string proc, ComboBox cb, string vMember, string dMember, string param = null, int val = 0)
         {
             
             try

@@ -40,6 +40,7 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.phone_txt = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.OrderDD = new System.Windows.Forms.ComboBox();
@@ -60,19 +61,38 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.button5 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.SNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CateID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Catename = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.menuID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.menuItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ordertype = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.floorID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.floor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tableID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tables = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2.SuspendLayout();
             this.panel5.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel6.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.panel6);
             this.panel2.Controls.Add(this.panel5);
             this.panel2.Controls.Add(this.panel4);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -168,6 +188,7 @@
             this.button1.TabIndex = 0;
             this.button1.Text = "&ADD";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // panel4
             // 
@@ -217,6 +238,14 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(314, 678);
             this.panel1.TabIndex = 4;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(18, 592);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(262, 71);
+            this.pictureBox1.TabIndex = 28;
+            this.pictureBox1.TabStop = false;
             // 
             // phone_txt
             // 
@@ -269,7 +298,7 @@
             this.tableDD.FormattingEnabled = true;
             this.tableDD.Location = new System.Drawing.Point(11, 386);
             this.tableDD.Name = "tableDD";
-            this.tableDD.Size = new System.Drawing.Size(270, 24);
+            this.tableDD.Size = new System.Drawing.Size(271, 24);
             this.tableDD.TabIndex = 23;
             // 
             // label8
@@ -314,14 +343,20 @@
             this.button7.TabIndex = 7;
             this.button7.Text = "ADD TO &CART";
             this.button7.UseVisualStyleBackColor = false;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // numericUpDown1
             // 
             this.numericUpDown1.Location = new System.Drawing.Point(11, 244);
             this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(269, 22);
+            this.numericUpDown1.Size = new System.Drawing.Size(271, 22);
             this.numericUpDown1.TabIndex = 19;
             this.numericUpDown1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numericUpDown1.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
             // 
             // label6
@@ -427,13 +462,158 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Welcome";
             // 
-            // pictureBox1
+            // panel6
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(18, 592);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(262, 71);
-            this.pictureBox1.TabIndex = 28;
-            this.pictureBox1.TabStop = false;
+            this.panel6.Controls.Add(this.groupBox2);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel6.Location = new System.Drawing.Point(0, 139);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(1069, 539);
+            this.panel6.TabIndex = 5;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.dataGridView1);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox2.Location = new System.Drawing.Point(0, 0);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(1069, 539);
+            this.groupBox2.TabIndex = 6;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "groupBox2";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.SNO,
+            this.CateID,
+            this.Catename,
+            this.menuID,
+            this.menuItem,
+            this.price,
+            this.qty,
+            this.ordertype,
+            this.floorID,
+            this.floor,
+            this.tableID,
+            this.tables,
+            this.phone});
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(3, 18);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(1063, 518);
+            this.dataGridView1.TabIndex = 0;
+            // 
+            // SNO
+            // 
+            this.SNO.HeaderText = "";
+            this.SNO.MinimumWidth = 6;
+            this.SNO.Name = "SNO";
+            this.SNO.ReadOnly = true;
+            this.SNO.Width = 125;
+            // 
+            // CateID
+            // 
+            this.CateID.HeaderText = "CateID";
+            this.CateID.MinimumWidth = 6;
+            this.CateID.Name = "CateID";
+            this.CateID.ReadOnly = true;
+            this.CateID.Visible = false;
+            this.CateID.Width = 125;
+            // 
+            // Catename
+            // 
+            this.Catename.HeaderText = "CateName";
+            this.Catename.MinimumWidth = 6;
+            this.Catename.Name = "Catename";
+            this.Catename.ReadOnly = true;
+            this.Catename.Width = 125;
+            // 
+            // menuID
+            // 
+            this.menuID.HeaderText = "menuID";
+            this.menuID.MinimumWidth = 6;
+            this.menuID.Name = "menuID";
+            this.menuID.ReadOnly = true;
+            this.menuID.Visible = false;
+            this.menuID.Width = 125;
+            // 
+            // menuItem
+            // 
+            this.menuItem.HeaderText = "Menu Item";
+            this.menuItem.MinimumWidth = 6;
+            this.menuItem.Name = "menuItem";
+            this.menuItem.ReadOnly = true;
+            this.menuItem.Width = 125;
+            // 
+            // price
+            // 
+            this.price.HeaderText = "Price";
+            this.price.MinimumWidth = 6;
+            this.price.Name = "price";
+            this.price.ReadOnly = true;
+            this.price.Width = 125;
+            // 
+            // qty
+            // 
+            this.qty.HeaderText = "Quanitity";
+            this.qty.MinimumWidth = 6;
+            this.qty.Name = "qty";
+            this.qty.ReadOnly = true;
+            this.qty.Width = 125;
+            // 
+            // ordertype
+            // 
+            this.ordertype.HeaderText = "Order Type";
+            this.ordertype.MinimumWidth = 6;
+            this.ordertype.Name = "ordertype";
+            this.ordertype.Width = 125;
+            // 
+            // floorID
+            // 
+            this.floorID.HeaderText = "floorID";
+            this.floorID.MinimumWidth = 6;
+            this.floorID.Name = "floorID";
+            this.floorID.ReadOnly = true;
+            this.floorID.Visible = false;
+            this.floorID.Width = 125;
+            // 
+            // floor
+            // 
+            this.floor.HeaderText = "Floor";
+            this.floor.MinimumWidth = 6;
+            this.floor.Name = "floor";
+            this.floor.ReadOnly = true;
+            this.floor.Width = 125;
+            // 
+            // tableID
+            // 
+            this.tableID.HeaderText = "tableID";
+            this.tableID.MinimumWidth = 6;
+            this.tableID.Name = "tableID";
+            this.tableID.ReadOnly = true;
+            this.tableID.Visible = false;
+            this.tableID.Width = 125;
+            // 
+            // tables
+            // 
+            this.tables.HeaderText = "Tables";
+            this.tables.MinimumWidth = 6;
+            this.tables.Name = "tables";
+            this.tables.ReadOnly = true;
+            this.tables.Width = 125;
+            // 
+            // phone
+            // 
+            this.phone.HeaderText = "Phone";
+            this.phone.MinimumWidth = 6;
+            this.phone.Name = "phone";
+            this.phone.ReadOnly = true;
+            this.phone.Width = 125;
             // 
             // Order
             // 
@@ -454,10 +634,13 @@
             this.panel4.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel6.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -497,5 +680,21 @@
         private System.Windows.Forms.ComboBox floorDD;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SNO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CateID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Catename;
+        private System.Windows.Forms.DataGridViewTextBoxColumn menuID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn menuItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn price;
+        private System.Windows.Forms.DataGridViewTextBoxColumn qty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ordertype;
+        private System.Windows.Forms.DataGridViewTextBoxColumn floorID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn floor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tableID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tables;
+        private System.Windows.Forms.DataGridViewTextBoxColumn phone;
     }
 }
