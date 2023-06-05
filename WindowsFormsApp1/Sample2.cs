@@ -26,10 +26,7 @@ namespace WindowsFormsApp1
                     Mainclass.showWindow(IT,this, MDI.ActiveForm);
                     
                 }
-                else
-                {
-
-                }
+                
                 
             }
             

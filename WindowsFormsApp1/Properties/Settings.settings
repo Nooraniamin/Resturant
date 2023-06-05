@@ -5,10 +5,18 @@
     <Setting Name="rmsConnectionString" Type="(Connection string)" Scope="Application">
       <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SerializableConnectionString xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
-  &lt;ConnectionString&gt;Data Source=AMIN;Initial Catalog=rms;Integrated Security=True&lt;/ConnectionString&gt;
+  &lt;ConnectionString&gt;Data Source=192.168.100.11,1433AMIN;Initial Catalog=rms;ID=rms;Password=1234567&lt;/ConnectionString&gt;
   &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">Data Source=AMIN;Initial Catalog=rms;Integrated Security=True</Value>
+      <Value Profile="(Default)">Data Source=192.168.100.11,1433AMIN;Initial Catalog=rms;ID=rms;Password=1234567</Value>
+    </Setting>
+    <Setting Name="rmsConnectionString1" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+  &lt;ConnectionString&gt;Data Source=AMIN;Initial Catalog=rms;Persist Security Info=True;User ID=rms;Password=1234567&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=AMIN;Initial Catalog=rms;Persist Security Info=True;User ID=rms;Password=1234567</Value>
     </Setting>
   </Settings>
 </SettingsFile>

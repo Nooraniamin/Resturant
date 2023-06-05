@@ -39,7 +39,7 @@ namespace WindowsFormsApp1
                 return "";
             }
         }
-        public static SqlConnection con = new SqlConnection(@"Data Source=AMIN;Initial Catalog=rms;Integrated Security=True");
+        public static SqlConnection con = new SqlConnection(@"Data Source=AMIN;Initial Catalog=rms;Persist Security Info=True;User ID=rms;Password=1234567");
         public static void showWindow(Form openWin, Form closeWin, Form MDI)
         {
             closeWin.Close();

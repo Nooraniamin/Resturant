@@ -39,6 +39,7 @@
     <Reference Include="System.configuration" />
     <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -118,6 +119,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>rmsDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="rmsDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rmsDataSet2.xsd</DependentUpon>
     </Compile>
     <Compile Include="roles.cs">
       <SubType>Form</SubType>
@@ -242,6 +248,17 @@
     </None>
     <None Include="rmsDataSet1.xss">
       <DependentUpon>rmsDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="rmsDataSet2.xsc">
+      <DependentUpon>rmsDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="rmsDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>rmsDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="rmsDataSet2.xss">
+      <DependentUpon>rmsDataSet2.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

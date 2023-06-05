@@ -135,9 +135,9 @@ namespace WindowsFormsApp1
                 else
                 {
                     connection = "Data Source" + servertxt.Text + ";Initial Catalog=" + databasetxt.Text + ";Integrated Security=true;MultipleActiveResultSets= true;";
-                    string con = "Data Source=AMIN;Initial Catalog=rms;Integrated Security=True";
+                    string con = "Data Source=192.168.100.11,1433;Initial Catalog=rms;ID=rms;Password=1234567";
                     saveConnection();
-                    updateConfigFile(con);
+                    updateConfigFile(connection);
                     DialogResult dr = MessageBox.Show("Setting saved successfully");
                     ConfigurationManager.RefreshSection("connectionString");
                     if(dr == DialogResult.OK) 

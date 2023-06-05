@@ -13,6 +13,57 @@ namespace WindowsFormsApp1
 {
     internal class insertion
     {
+        public static void insertorderDetail(Int64 o_id, int p_id)
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand("st_insertorderDetail", Mainclass.con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@order", o_id);
+                cmd.Parameters.AddWithValue("@p_id", p_id);
+                Mainclass.con.Open();
+                int res = cmd.ExecuteNonQuery();
+                Mainclass.con.Close();
+                if (res > 0)
+                {
+                    Mainclass.showMessge("item" + "add successfully into the system", "success");
+                }
+            }
+            catch (Exception ex)
+            {
+                Mainclass.con.Close();
+                Mainclass.showMessge(ex.Message, "Error");
+            }
+        }
+        public static void insertorder(DateTime date, Int64 cate, Int16 o_type, Int16 f_id, Int16 t_id,float t_amount,float p_amount,float r_amount,Int16 status)
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand("st_insertorder", Mainclass.con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@date", date);
+                cmd.Parameters.AddWithValue("@catID", cate);
+                cmd.Parameters.AddWithValue("@orderType", o_type);
+                cmd.Parameters.AddWithValue("@floorid", f_id);
+                cmd.Parameters.AddWithValue("@tableid",t_id );
+                cmd.Parameters.AddWithValue("@t_amount", t_amount);
+                cmd.Parameters.AddWithValue("@a_paid", p_amount);
+                cmd.Parameters.AddWithValue("@a_return", r_amount);
+                cmd.Parameters.AddWithValue("@status", status);
+                Mainclass.con.Open();
+                int res = cmd.ExecuteNonQuery();
+                Mainclass.con.Close();
+                if (res > 0)
+                {
+                    Mainclass.showMessge("item" + "add successfully into the system", "success");
+                }
+            }
+            catch (Exception ex)
+            {
+                Mainclass.con.Close();
+                Mainclass.showMessge(ex.Message, "Error");
+            }
+        }
         public static void insertfoodmenu(string name,Int16 cate,float price,Int16 status, Image img)
         {
             try
@@ -28,6 +79,7 @@ namespace WindowsFormsApp1
                 cmd.Parameters.AddWithValue("@price", price);
                 cmd.Parameters.AddWithValue("@status", status);
                 cmd.Parameters.AddWithValue("@image", data);
+                Mainclass.con.Open();
                 int res = cmd.ExecuteNonQuery();
                 Mainclass.con.Close();
                 if (res > 0)

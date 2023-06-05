@@ -26,10 +26,21 @@ namespace WindowsFormsApp1.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=AMIN;Initial Catalog=rms;Integrated Security=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=192.168.100.11,1433AMIN;Initial Catalog=rms;ID=rms;Password=1234567")]
         public string rmsConnectionString {
             get {
                 return ((string)(this["rmsConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=AMIN;Initial Catalog=rms;Persist Security Info=True;User ID=rms;Passw" +
+            "ord=1234567")]
+        public string rmsConnectionString1 {
+            get {
+                return ((string)(this["rmsConnectionString1"]));
             }
         }
     }

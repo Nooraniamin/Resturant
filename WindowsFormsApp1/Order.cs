@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using WindowsFormsApp1.Properties;
-
+using System.Transactions;
 namespace WindowsFormsApp1
 {
     public partial class Order : Form
@@ -29,12 +29,13 @@ namespace WindowsFormsApp1
         private void panel4_Paint(object sender, PaintEventArgs e)
         {
             label2.Text = Retreival.USER;
-            Retreival.loaditems("st_getfoodcate", CateDD, "Food ID", "Food Categories");
-            CateDD.SelectedIndex = -1;
+            Retreival.loaditem("st_getMenuItem", listBox1, "Menu ID", "Menu Items");
             
+            Retreival.loaditems("st_getMenuItem", itemDD, "Menu ID", "Menu Items");
             Retreival.loaditems("st_getfloors",floorDD , "ID", "Floor");
-             floorDD.SelectedIndex = -1;
+            floorDD.SelectedIndex = -1;
             tableDD.SelectedIndex = -1;
+            itemDD.SelectedIndex = -1;
         }
 
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
@@ -44,11 +45,7 @@ namespace WindowsFormsApp1
 
         private void CateDD_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (CateDD.SelectedIndex != -1)
-            {
-                Retreival.loaditemssa("st_getMenuItemWRtCategory", itemDD, "Menu ID", "Menu Items", "@cid", Convert.ToInt16(CateDD.SelectedValue.ToString()));
-                itemDD.SelectedIndex = -1;
-            }
+            
         }
         private void itemDD_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -67,7 +64,8 @@ namespace WindowsFormsApp1
                     Image I = Retreival.getimage(Convert.ToInt32(itemDD.SelectedValue.ToString()));
                     pictureBox1.Image = I;
                     pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-
+                    DataRowView drv = itemDD.SelectedItem as DataRowView;
+                    Retreival.loaditemCate(drv["Menu Items"].ToString());
 
                 }
                 catch (Exception ex)
@@ -82,12 +80,6 @@ namespace WindowsFormsApp1
                 pictureBox1.Image = null;
 
             }
-
-
-
-
-
-
         }
 
         private void floorDD_SelectedIndexChanged(object sender, EventArgs e)
@@ -129,73 +121,80 @@ namespace WindowsFormsApp1
         {
 
         }
-
+        float ta = 0;
+        int catID; string catname;
+        
         private void button7_Click(object sender, EventArgs e)
         {
             if (Mainclass.checkControl(panel1).Count != 0)
             {
-                DataRowView drvCate = CateDD.SelectedItem as DataRowView;
+                catID = Retreival.CATEID;
+                catname = Retreival.CATENAME;
                 DataRowView drvitem = itemDD.SelectedItem as DataRowView;
                 DataRowView drvfloor = floorDD.SelectedItem as DataRowView;
                 DataRowView drvtable = tableDD.SelectedItem as DataRowView;
 
                 bool check = false;
-                if(dataGridView1.Rows.Count == 1)
+                if (dataGridView1.Rows.Count == 1)
                 {
                     if (OrderDD.SelectedIndex == 0)
                     {
-                        dataGridView1.Rows.Add(null, Convert.ToInt16(CateDD.SelectedValue.ToString()), drvCate["Food Categories"], Convert.ToInt32(itemDD.SelectedValue.ToString()),
-                            drvitem["Menu Items"], price_txt.Text, numericUpDown1.Value, OrderDD.SelectedItem, Convert.ToInt16(floorDD.SelectedValue.ToString()), drvfloor["Floor"],
-                            Convert.ToInt16(tableDD.SelectedValue.ToString()), drvtable["Table Number"], null);
+                        dataGridView1.Rows.Add(null, catID, catname, Convert.ToInt32(itemDD.SelectedValue.ToString()), drvitem["Menu Items"], price_txt.Text,
+                        numericUpDown1.Value, OrderDD.SelectedItem, Convert.ToInt16(floorDD.SelectedValue.ToString()), drvfloor["Floor"],
+                        Convert.ToInt16(tableDD.SelectedValue.ToString()), drvtable["Table Number"], null, 0, 0); 
                     }
                     else
                     {
-                        dataGridView1.Rows.Add(null, Convert.ToInt16(CateDD.SelectedValue.ToString()), drvCate["Food Categories"], Convert.ToInt32(itemDD.SelectedValue.ToString()),
-                        drvitem["Menu Items"], price_txt.Text, numericUpDown1.Value, OrderDD.SelectedItem, null, null,
-                        null, null, phone_txt.Text);
+                            dataGridView1.Rows.Add(null,catID, catname, Convert.ToInt32(itemDD.SelectedValue.ToString()),
+                            drvitem["Menu Items"], price_txt.Text, numericUpDown1.Value, OrderDD.SelectedItem, null, null,
+                            null, null, phone_txt.Text, 0);
+                        
+                        
                     }
                 }
-                else if(dataGridView1.Rows.Count > 1)
+                else if (dataGridView1.Rows.Count > 1)
                 {
                     foreach (DataGridViewRow row in dataGridView1.Rows)
                     {
                         if (itemDD.SelectedValue.ToString() == row.Cells["menuID"].Value.ToString())
                         {
                             check = true;
-                            
+
                             if (check)
                             {
                                 Mainclass.showMessge("Item added already", "Error");
                                 break;
                             }
+
+                        }
+                        else if (itemDD.SelectedValue.ToString() != row.Cells["menuID"].Value.ToString())
+                        {
+                            if (OrderDD.SelectedIndex == 0)
+                            {
+                                dataGridView1.Rows.Add(null, catID, catname, Convert.ToInt32(itemDD.SelectedValue.ToString()), drvitem["Menu Items"], price_txt.Text,
+                                numericUpDown1.Value, OrderDD.SelectedItem, Convert.ToInt16(floorDD.SelectedValue.ToString()), drvfloor["Floor"],
+                                Convert.ToInt16(tableDD.SelectedValue.ToString()), drvtable["Table Number"], null, 0, 0);
+                            }
                             else
                             {
-                                if (OrderDD.SelectedIndex == 0)
-                                {
-                                    dataGridView1.Rows.Add(null, Convert.ToInt16(CateDD.SelectedValue.ToString()), drvCate["Food Categories"], Convert.ToInt32(itemDD.SelectedValue.ToString()),
-                                        drvitem["Menu Items"], price_txt.Text, numericUpDown1.Value, OrderDD.SelectedItem, Convert.ToInt16(floorDD.SelectedValue.ToString()), drvfloor["Floor"],
-                                        Convert.ToInt16(tableDD.SelectedValue.ToString()), drvtable["Table Number"], null);
-                                    break;
-                                }
-                                else
-                                {
-                                    dataGridView1.Rows.Add(null, Convert.ToInt16(CateDD.SelectedValue.ToString()), drvCate["Food Categories"], Convert.ToInt32(itemDD.SelectedValue.ToString()),
-                                    drvitem["Menu Items"], price_txt.Text, numericUpDown1.Value, OrderDD.SelectedItem, null, null,
-                                    null, null, phone_txt.Text);
-                                    break;
-                                }
+                                dataGridView1.Rows.Add(null, catID, catname, Convert.ToInt32(itemDD.SelectedValue.ToString()),
+                                drvitem["Menu Items"], price_txt.Text, numericUpDown1.Value, OrderDD.SelectedItem, null, null,
+                                null, null, phone_txt.Text, 0);
+
+
                             }
                         }
-                        
 
                     }
                 }
-                
+
+                ta += float.Parse(price_txt.Text);
+                totalAmount.Text = ta.ToString();
 
             }
-            
-            
-            
+
+
+
         }
         int edit;
         private void button1_Click(object sender, EventArgs e)
@@ -203,6 +202,89 @@ namespace WindowsFormsApp1
             edit = 0;
             Mainclass.resetEnable(panel1);
             
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel7_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel6_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex != -1 && e.ColumnIndex != -1)
+            {
+                if (e.ColumnIndex == 14)
+                {
+                    DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
+                    float prc = Convert.ToSingle(row.Cells["price"].Value.ToString());
+                    ta -= prc;
+                    totalAmount.Text = ta.ToString();
+                    dataGridView1.Rows.Remove(row);
+                }
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            using (TransactionScope ts = new TransactionScope())
+            {
+                try
+                {
+                    if (OrderDD.SelectedIndex == 0)
+                    {
+                        insertion.insertorder(DateTime.Today, catID, Convert.ToInt16(OrderDD.SelectedIndex), 
+                        Convert.ToInt16(floorDD.SelectedValue.ToString()), Convert.ToInt16(tableDD.SelectedValue.ToString()),
+                        float.Parse(totalAmount.Text), 0, 0,0);
+                    }
+                    else
+                    {
+                        insertion.insertorder(DateTime.Today, catID, Convert.ToInt16(OrderDD.SelectedIndex), Convert.ToInt16(floorDD.SelectedValue.ToString()), Convert.ToInt16(tableDD.SelectedValue.ToString()), float.Parse(totalAmount.Text), 0, 0, 0);
+                    }
+
+                }
+                catch (Exception ex)
+                {
+
+                }
+                ts.Complete();
+            }
+        }
+        Int64 cusID;
+        private void phone_txt_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+        private void Phone_txt_Leave(object sender, EventArgs e) 
+        {
+            
+        }
+
+        private void phone_txt_Leave_1(object sender, EventArgs e)
+        {
+            if (phone_txt.Text != "")
+            {
+                cusID = Retreival.getcusWrtPhone(phone_txt.Text);
+                if (cusID == 0)
+                {
+                    Customer cw = new Customer();
+                    Mainclass.showWindow(cw, this, MDI.ActiveForm);
+                }
+                else if( cusID != 0)
+                {
+                    Mainclass.showMessge(Retreival.CUSTOMER + "\n" + Retreival.ADDRESS + "\n", "Success"); 
+                }
+            }
+
         }
     }
 }

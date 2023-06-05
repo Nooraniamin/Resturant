@@ -13,6 +13,63 @@ namespace WindowsFormsApp1
 {
     internal class Retreival
     {
+        private static string customer, address;
+        public static string CUSTOMER
+        {
+            get
+            {
+                return customer;
+            }
+            private set
+            {
+                customer = value;
+            }
+        }
+        public static string ADDRESS
+        {
+            get
+            {
+                return address;    
+            }
+            private set
+            {
+                address = value;
+            }
+        }
+        public static Int64 getcusWrtPhone(string phone)
+        {
+            Int32 id = 0;
+            try
+            {
+                Mainclass.con.Open();
+                SqlCommand cmd = new SqlCommand("st_getcusIDWRTPhone", Mainclass.con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@phone", phone);
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    while (dr.Read())
+                    {
+                        id = Convert.ToInt32(dr["CustomerID"].ToString());
+                        CUSTOMER = dr["Name"].ToString();
+                        ADDRESS = dr["Address"].ToString();
+                    }
+                }
+                else
+                {
+                    id = 0;
+                    CUSTOMER = "";
+                    ADDRESS = "";
+                }
+                Mainclass.con.Close();
+            }
+            catch (Exception ex)
+            {
+                Mainclass.showMessge(ex.Message, "Error");
+                Mainclass.con.Close();
+            }
+            return id;
+        }
         public static void getfoodmenu(DataGridView gv, DataGridViewColumn mid, DataGridViewColumn m_name, DataGridViewColumn catId, DataGridViewColumn catname, DataGridViewColumn price, DataGridViewColumn status, DataGridViewColumn img)
         {
             try
@@ -206,6 +263,73 @@ namespace WindowsFormsApp1
             }
             
         }
+        public static void loaditem(string proc, ListBox cb, string vMember, string dMember)
+        {
+
+            try
+            {
+
+                SqlCommand cmd = new SqlCommand(proc, Mainclass.con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                cb.DisplayMember = dMember;
+                cb.ValueMember = vMember;
+                cb.DataSource = dt;
+
+
+            }
+            catch (Exception)
+            {
+                throw;
+
+            }
+
+        }
+        private static Int16 CatID;
+        private static string CatName;
+        public static Int16 CATEID
+        {
+            get { return CatID; }
+            private set { CatID = value; }
+        }
+        public static string CATENAME
+        {
+            get { return CatName; }
+            private set
+            {
+                CatName = value;
+            }
+        }
+        public static void loaditemCate(string proc)
+        {
+            try
+            {
+
+                SqlCommand cmd = new SqlCommand("st_getCategoryWRTItem", Mainclass.con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@name", proc);
+                Mainclass.con.Open();
+                SqlDataReader dr = cmd.ExecuteReader(); 
+                if(dr.HasRows)
+                {
+                    while(dr.Read())
+                    {
+                        CATEID = Convert.ToInt16(dr[0].ToString());
+                        CATENAME = dr[1].ToString();
+                    }
+                }
+                Mainclass.con.Close();  
+
+            }
+            catch (Exception)
+            {
+                throw;
+
+            }
+
+        }
         public static Image getimage(int mid)
         {
             Image I = null;
@@ -217,6 +341,7 @@ namespace WindowsFormsApp1
                 cmd.Parameters.AddWithValue("@mid", mid);
                 Mainclass.con.Open();
                 arr = (byte[])cmd.ExecuteScalar();
+                Mainclass.con.Close();
                 MemoryStream ms = new MemoryStream(arr);
                 I = Image.FromStream(ms);
                

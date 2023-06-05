@@ -26,8 +26,16 @@ namespace WindowsFormsApp1
             }
             else
             {
-                Sample2 Is = new Sample2();
-                Mainclass.showWindow(Is, this);
+                try
+                {
+                    Sample2 Is = new Sample2();
+                    Mainclass.showWindow(Is, this);
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                
             }
         }
 

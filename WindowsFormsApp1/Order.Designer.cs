@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.totalAmount = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.button6 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -39,30 +43,27 @@
             this.button1 = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.phone_txt = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.OrderDD = new System.Windows.Forms.ComboBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.tableDD = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.floorDD = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.button7 = new System.Windows.Forms.Button();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.price_txt = new System.Windows.Forms.TextBox();
-            this.itemDD = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.CateDD = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.button5 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.button5 = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.itemDD = new System.Windows.Forms.ComboBox();
+            this.price_txt = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.button7 = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.floorDD = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.tableDD = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.OrderDD = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.phone_txt = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.SNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CateID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -77,16 +78,18 @@
             this.tableID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tables = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.deleteGV = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel2.SuspendLayout();
+            this.panel6.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.panel5.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel4.SuspendLayout();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.panel3.SuspendLayout();
-            this.panel6.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -100,6 +103,53 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1069, 678);
             this.panel2.TabIndex = 5;
+            // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.groupBox2);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel6.Location = new System.Drawing.Point(0, 139);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(1069, 539);
+            this.panel6.TabIndex = 5;
+            this.panel6.Paint += new System.Windows.Forms.PaintEventHandler(this.panel6_Paint);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.label11);
+            this.groupBox2.Controls.Add(this.totalAmount);
+            this.groupBox2.Controls.Add(this.dataGridView1);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox2.Location = new System.Drawing.Point(0, 0);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(1069, 539);
+            this.groupBox2.TabIndex = 7;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "groupBox2";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.White;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.Firebrick;
+            this.label11.Location = new System.Drawing.Point(347, 468);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(210, 38);
+            this.label11.TabIndex = 2;
+            this.label11.Text = "Total Amount";
+            // 
+            // totalAmount
+            // 
+            this.totalAmount.AutoSize = true;
+            this.totalAmount.BackColor = System.Drawing.Color.White;
+            this.totalAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalAmount.ForeColor = System.Drawing.Color.Firebrick;
+            this.totalAmount.Location = new System.Drawing.Point(584, 468);
+            this.totalAmount.Name = "totalAmount";
+            this.totalAmount.Size = new System.Drawing.Size(62, 38);
+            this.totalAmount.TabIndex = 1;
+            this.totalAmount.Text = "0.0";
             // 
             // panel5
             // 
@@ -166,6 +216,7 @@
             this.button3.TabIndex = 4;
             this.button3.Text = "&SAVE";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -211,9 +262,217 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "User";
             // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.button5);
+            this.panel3.Controls.Add(this.label1);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(314, 73);
+            this.panel3.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Black", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(162, 18);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(146, 38);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Welcome";
+            // 
+            // button5
+            // 
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.ForeColor = System.Drawing.Color.White;
+            this.button5.Location = new System.Drawing.Point(3, 12);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(117, 38);
+            this.button5.TabIndex = 2;
+            this.button5.Text = "<<";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(16, 81);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(80, 16);
+            this.label3.TabIndex = 14;
+            this.label3.Text = "Select Items";
+            // 
+            // itemDD
+            // 
+            this.itemDD.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.itemDD.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.itemDD.Enabled = false;
+            this.itemDD.FormattingEnabled = true;
+            this.itemDD.Location = new System.Drawing.Point(13, 100);
+            this.itemDD.Name = "itemDD";
+            this.itemDD.Size = new System.Drawing.Size(270, 24);
+            this.itemDD.TabIndex = 15;
+            this.itemDD.SelectedIndexChanged += new System.EventHandler(this.itemDD_SelectedIndexChanged);
+            // 
+            // price_txt
+            // 
+            this.price_txt.Enabled = false;
+            this.price_txt.Location = new System.Drawing.Point(13, 147);
+            this.price_txt.Name = "price_txt";
+            this.price_txt.Size = new System.Drawing.Size(269, 22);
+            this.price_txt.TabIndex = 16;
+            this.price_txt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(15, 128);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(38, 16);
+            this.label4.TabIndex = 17;
+            this.label4.Text = "Price";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(15, 172);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(55, 16);
+            this.label6.TabIndex = 18;
+            this.label6.Text = "Quantity";
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(12, 191);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(271, 22);
+            this.numericUpDown1.TabIndex = 19;
+            this.numericUpDown1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
+            // 
+            // button7
+            // 
+            this.button7.BackColor = System.Drawing.Color.OrangeRed;
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button7.ForeColor = System.Drawing.Color.White;
+            this.button7.Location = new System.Drawing.Point(9, 430);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(262, 29);
+            this.button7.TabIndex = 7;
+            this.button7.Text = "ADD TO &CART";
+            this.button7.UseVisualStyleBackColor = false;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(16, 264);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(38, 16);
+            this.label7.TabIndex = 20;
+            this.label7.Text = "Floor";
+            // 
+            // floorDD
+            // 
+            this.floorDD.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.floorDD.Enabled = false;
+            this.floorDD.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.floorDD.FormattingEnabled = true;
+            this.floorDD.Location = new System.Drawing.Point(13, 283);
+            this.floorDD.Name = "floorDD";
+            this.floorDD.Size = new System.Drawing.Size(270, 24);
+            this.floorDD.TabIndex = 21;
+            this.floorDD.SelectedIndexChanged += new System.EventHandler(this.floorDD_SelectedIndexChanged);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(15, 314);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(43, 16);
+            this.label8.TabIndex = 22;
+            this.label8.Text = "Table";
+            // 
+            // tableDD
+            // 
+            this.tableDD.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.tableDD.Enabled = false;
+            this.tableDD.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.tableDD.FormattingEnabled = true;
+            this.tableDD.Location = new System.Drawing.Point(12, 333);
+            this.tableDD.Name = "tableDD";
+            this.tableDD.Size = new System.Drawing.Size(271, 24);
+            this.tableDD.TabIndex = 23;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(16, 218);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(90, 16);
+            this.label9.TabIndex = 24;
+            this.label9.Text = "Type of Order";
+            // 
+            // OrderDD
+            // 
+            this.OrderDD.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.OrderDD.Enabled = false;
+            this.OrderDD.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.OrderDD.FormattingEnabled = true;
+            this.OrderDD.Items.AddRange(new object[] {
+            "Dine In",
+            "Take-away",
+            "Home Delivery"});
+            this.OrderDD.Location = new System.Drawing.Point(13, 237);
+            this.OrderDD.Name = "OrderDD";
+            this.OrderDD.Size = new System.Drawing.Size(270, 24);
+            this.OrderDD.TabIndex = 25;
+            this.OrderDD.SelectedIndexChanged += new System.EventHandler(this.OrderDD_SelectedIndexChanged);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.ForeColor = System.Drawing.Color.White;
+            this.label10.Location = new System.Drawing.Point(16, 367);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(97, 16);
+            this.label10.TabIndex = 26;
+            this.label10.Text = "Phone Number";
+            this.label10.Visible = false;
+            this.label10.Click += new System.EventHandler(this.label10_Click);
+            // 
+            // phone_txt
+            // 
+            this.phone_txt.Enabled = false;
+            this.phone_txt.Location = new System.Drawing.Point(12, 386);
+            this.phone_txt.MaxLength = 15;
+            this.phone_txt.Name = "phone_txt";
+            this.phone_txt.Size = new System.Drawing.Size(271, 22);
+            this.phone_txt.TabIndex = 27;
+            this.phone_txt.Visible = false;
+            this.phone_txt.TextChanged += new System.EventHandler(this.phone_txt_TextChanged);
+            this.phone_txt.Leave += new System.EventHandler(this.phone_txt_Leave_1);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(13, 465);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(262, 71);
+            this.pictureBox1.TabIndex = 28;
+            this.pictureBox1.TabStop = false;
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.panel1.Controls.Add(this.listBox1);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.phone_txt);
             this.panel1.Controls.Add(this.label10);
@@ -230,8 +489,6 @@
             this.panel1.Controls.Add(this.price_txt);
             this.panel1.Controls.Add(this.itemDD);
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.CateDD);
-            this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -239,248 +496,15 @@
             this.panel1.Size = new System.Drawing.Size(314, 678);
             this.panel1.TabIndex = 4;
             // 
-            // pictureBox1
+            // listBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(18, 592);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(262, 71);
-            this.pictureBox1.TabIndex = 28;
-            this.pictureBox1.TabStop = false;
-            // 
-            // phone_txt
-            // 
-            this.phone_txt.Location = new System.Drawing.Point(11, 439);
-            this.phone_txt.MaxLength = 15;
-            this.phone_txt.Name = "phone_txt";
-            this.phone_txt.Size = new System.Drawing.Size(271, 22);
-            this.phone_txt.TabIndex = 27;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(15, 420);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(97, 16);
-            this.label10.TabIndex = 26;
-            this.label10.Text = "Phone Number";
-            this.label10.Click += new System.EventHandler(this.label10_Click);
-            // 
-            // OrderDD
-            // 
-            this.OrderDD.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.OrderDD.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.OrderDD.FormattingEnabled = true;
-            this.OrderDD.Items.AddRange(new object[] {
-            "Dine In",
-            "Take-away",
-            "Home Delivery"});
-            this.OrderDD.Location = new System.Drawing.Point(12, 290);
-            this.OrderDD.Name = "OrderDD";
-            this.OrderDD.Size = new System.Drawing.Size(270, 24);
-            this.OrderDD.TabIndex = 25;
-            this.OrderDD.SelectedIndexChanged += new System.EventHandler(this.OrderDD_SelectedIndexChanged);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(15, 271);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(90, 16);
-            this.label9.TabIndex = 24;
-            this.label9.Text = "Type of Order";
-            // 
-            // tableDD
-            // 
-            this.tableDD.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.tableDD.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.tableDD.FormattingEnabled = true;
-            this.tableDD.Location = new System.Drawing.Point(11, 386);
-            this.tableDD.Name = "tableDD";
-            this.tableDD.Size = new System.Drawing.Size(271, 24);
-            this.tableDD.TabIndex = 23;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(14, 367);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(43, 16);
-            this.label8.TabIndex = 22;
-            this.label8.Text = "Table";
-            // 
-            // floorDD
-            // 
-            this.floorDD.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.floorDD.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.floorDD.FormattingEnabled = true;
-            this.floorDD.Location = new System.Drawing.Point(12, 336);
-            this.floorDD.Name = "floorDD";
-            this.floorDD.Size = new System.Drawing.Size(270, 24);
-            this.floorDD.TabIndex = 21;
-            this.floorDD.SelectedIndexChanged += new System.EventHandler(this.floorDD_SelectedIndexChanged);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(15, 317);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(38, 16);
-            this.label7.TabIndex = 20;
-            this.label7.Text = "Floor";
-            // 
-            // button7
-            // 
-            this.button7.BackColor = System.Drawing.Color.OrangeRed;
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.ForeColor = System.Drawing.Color.White;
-            this.button7.Location = new System.Drawing.Point(18, 506);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(236, 66);
-            this.button7.TabIndex = 7;
-            this.button7.Text = "ADD TO &CART";
-            this.button7.UseVisualStyleBackColor = false;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Location = new System.Drawing.Point(11, 244);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(271, 22);
-            this.numericUpDown1.TabIndex = 19;
-            this.numericUpDown1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.numericUpDown1.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(14, 225);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(55, 16);
-            this.label6.TabIndex = 18;
-            this.label6.Text = "Quantity";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(14, 181);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(38, 16);
-            this.label4.TabIndex = 17;
-            this.label4.Text = "Price";
-            // 
-            // price_txt
-            // 
-            this.price_txt.Location = new System.Drawing.Point(12, 200);
-            this.price_txt.Name = "price_txt";
-            this.price_txt.Size = new System.Drawing.Size(269, 22);
-            this.price_txt.TabIndex = 16;
-            this.price_txt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // itemDD
-            // 
-            this.itemDD.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.itemDD.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.itemDD.FormattingEnabled = true;
-            this.itemDD.Location = new System.Drawing.Point(12, 153);
-            this.itemDD.Name = "itemDD";
-            this.itemDD.Size = new System.Drawing.Size(270, 24);
-            this.itemDD.TabIndex = 15;
-            this.itemDD.SelectedIndexChanged += new System.EventHandler(this.itemDD_SelectedIndexChanged);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(15, 134);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(80, 16);
-            this.label3.TabIndex = 14;
-            this.label3.Text = "Select Items";
-            // 
-            // CateDD
-            // 
-            this.CateDD.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CateDD.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.CateDD.FormattingEnabled = true;
-            this.CateDD.Location = new System.Drawing.Point(12, 105);
-            this.CateDD.Name = "CateDD";
-            this.CateDD.Size = new System.Drawing.Size(270, 24);
-            this.CateDD.TabIndex = 13;
-            this.CateDD.SelectedIndexChanged += new System.EventHandler(this.CateDD_SelectedIndexChanged);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(15, 86);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(114, 16);
-            this.label5.TabIndex = 12;
-            this.label5.Text = "Select Categories";
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.button5);
-            this.panel3.Controls.Add(this.label1);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(314, 73);
-            this.panel3.TabIndex = 1;
-            // 
-            // button5
-            // 
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Location = new System.Drawing.Point(3, 12);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(117, 38);
-            this.button5.TabIndex = 2;
-            this.button5.Text = "<<";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Black", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(162, 18);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(146, 38);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Welcome";
-            // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.groupBox2);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(0, 139);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1069, 539);
-            this.panel6.TabIndex = 5;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.dataGridView1);
-            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Location = new System.Drawing.Point(0, 0);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1069, 539);
-            this.groupBox2.TabIndex = 6;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "groupBox2";
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 16;
+            this.listBox1.Location = new System.Drawing.Point(15, 543);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(260, 84);
+            this.listBox1.TabIndex = 31;
+            this.listBox1.Visible = false;
             // 
             // dataGridView1
             // 
@@ -499,7 +523,9 @@
             this.floor,
             this.tableID,
             this.tables,
-            this.phone});
+            this.phone,
+            this.status,
+            this.deleteGV});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 18);
             this.dataGridView1.Name = "dataGridView1";
@@ -507,6 +533,7 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(1063, 518);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // SNO
             // 
@@ -615,6 +642,26 @@
             this.phone.ReadOnly = true;
             this.phone.Width = 125;
             // 
+            // status
+            // 
+            this.status.HeaderText = "Status";
+            this.status.MinimumWidth = 6;
+            this.status.Name = "status";
+            this.status.ReadOnly = true;
+            this.status.Visible = false;
+            this.status.Width = 125;
+            // 
+            // deleteGV
+            // 
+            this.deleteGV.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.deleteGV.HeaderText = "Action";
+            this.deleteGV.MinimumWidth = 6;
+            this.deleteGV.Name = "deleteGV";
+            this.deleteGV.ReadOnly = true;
+            this.deleteGV.Text = "Remove";
+            this.deleteGV.UseColumnTextForButtonValue = true;
+            this.deleteGV.Width = 50;
+            // 
             // Order
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -627,19 +674,20 @@
             this.Name = "Order";
             this.Text = "Order";
             this.panel2.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            this.panel6.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
@@ -658,30 +706,31 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label totalAmount;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox price_txt;
-        private System.Windows.Forms.ComboBox itemDD;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox CateDD;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox phone_txt;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ComboBox OrderDD;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ComboBox tableDD;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox floorDD;
+        private System.Windows.Forms.ComboBox itemDD;
+        private System.Windows.Forms.TextBox price_txt;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox floorDD;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox tableDD;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ComboBox OrderDD;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox phone_txt;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn SNO;
         private System.Windows.Forms.DataGridViewTextBoxColumn CateID;
@@ -696,5 +745,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn tableID;
         private System.Windows.Forms.DataGridViewTextBoxColumn tables;
         private System.Windows.Forms.DataGridViewTextBoxColumn phone;
+        private System.Windows.Forms.DataGridViewTextBoxColumn status;
+        private System.Windows.Forms.DataGridViewButtonColumn deleteGV;
     }
 }

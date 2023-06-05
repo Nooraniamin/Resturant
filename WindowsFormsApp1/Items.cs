@@ -61,6 +61,7 @@ namespace WindowsFormsApp1
 
         private void button6_Click(object sender, EventArgs e)
         {
+            
             Order IT = new Order();
             Mainclass.showWindow(IT, MDI.ActiveForm);
             this.Close();
