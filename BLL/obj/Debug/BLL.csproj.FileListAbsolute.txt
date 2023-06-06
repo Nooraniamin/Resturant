@@ -1,0 +1,9 @@
+C:\Users\aminm\source\repos\WindowsFormsApp1\Resturant\BLL\bin\Debug\BLL.dll
+C:\Users\aminm\source\repos\WindowsFormsApp1\Resturant\BLL\bin\Debug\BLL.pdb
+C:\Users\aminm\source\repos\WindowsFormsApp1\Resturant\BLL\bin\Debug\DAL.dll
+C:\Users\aminm\source\repos\WindowsFormsApp1\Resturant\BLL\bin\Debug\DAL.pdb
+C:\Users\aminm\source\repos\WindowsFormsApp1\Resturant\BLL\obj\Debug\BLL.csproj.AssemblyReference.cache
+C:\Users\aminm\source\repos\WindowsFormsApp1\Resturant\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+C:\Users\aminm\source\repos\WindowsFormsApp1\Resturant\BLL\obj\Debug\BLL.csproj.CopyComplete
+C:\Users\aminm\source\repos\WindowsFormsApp1\Resturant\BLL\obj\Debug\BLL.dll
+C:\Users\aminm\source\repos\WindowsFormsApp1\Resturant\BLL\obj\Debug\BLL.pdb

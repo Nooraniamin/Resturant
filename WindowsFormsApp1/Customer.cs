@@ -4,7 +4,7 @@ using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Drawing;
-
+using BLL;
 namespace WindowsFormsApp1
 {
     public partial class Customer : Form
@@ -35,7 +35,9 @@ namespace WindowsFormsApp1
             DialogResult dr = MessageBox.Show("Are you sure,You want to delete this record ?", "Question.....", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr == DialogResult.Yes)
             {
-                Deletion.deleteData("st_deletecustomer", "@cID", 0, cusID);
+                BLL.bll_Student asd = new BLL.bll_Student();
+                asd.delete(cusID);
+                //Deletion.deleteData("st_deletecustomer", "@cID", 0, cusID);
                 Mainclass.resetDisable(panel1);
                 Retreival.getcus(dataGridView1, ID, name1, Phone, Address);
             }
@@ -45,18 +47,20 @@ namespace WindowsFormsApp1
         {
             if (Mainclass.checkControl(panel1).Count == 0)
             {
+                BLL.bll_Student asd = new BLL.bll_Student();
                 if (edit == 0)
                 {
-                    //textBox3.Visible = false;
-                    insertion.insertcus(cusname_txt.Text, phone_txt.Text, address_txt.Text);
+                    
+                    asd.saveStudent(cusname_txt.Text, phone_txt.Text, address_txt.Text);
+                    //insertion.insertcus(cusname_txt.Text, phone_txt.Text, address_txt.Text);
                     Mainclass.resetDisable(panel1);
                     Retreival.getcus(dataGridView1, ID, name1,  Phone, Address);
                 }
                 else if (edit == 1)
                 {
-
+                    asd.update(cusID, cusname_txt.Text, phone_txt.Text, address_txt.Text);
                     //userID = Convert.ToInt16(textBox3.Text);
-                    Updation.updateCustomer(cusID, cusname_txt.Text, phone_txt.Text, address_txt.Text);
+                    //Updation.updateCustomer(cusID, cusname_txt.Text, phone_txt.Text, address_txt.Text);
                     Mainclass.resetDisable(panel1);
                     Retreival.getcus(dataGridView1, ID, name1 ,Phone, Address);
                 }

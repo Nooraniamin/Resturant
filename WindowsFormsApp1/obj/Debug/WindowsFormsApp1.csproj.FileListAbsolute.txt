@@ -46,3 +46,8 @@ C:\Users\aminm\source\repos\WindowsFormsApp1\Resturant\WindowsFormsApp1\obj\Debu
 C:\Users\aminm\source\repos\WindowsFormsApp1\Resturant\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CoreCompileInputs.cache
 C:\Users\aminm\source\repos\WindowsFormsApp1\Resturant\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
 C:\Users\aminm\source\repos\WindowsFormsApp1\Resturant\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
+C:\Users\aminm\source\repos\WindowsFormsApp1\Resturant\WindowsFormsApp1\bin\Debug\BLL.dll
+C:\Users\aminm\source\repos\WindowsFormsApp1\Resturant\WindowsFormsApp1\bin\Debug\DAL.dll
+C:\Users\aminm\source\repos\WindowsFormsApp1\Resturant\WindowsFormsApp1\bin\Debug\BLL.pdb
+C:\Users\aminm\source\repos\WindowsFormsApp1\Resturant\WindowsFormsApp1\bin\Debug\DAL.pdb
+C:\Users\aminm\source\repos\WindowsFormsApp1\Resturant\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CopyComplete

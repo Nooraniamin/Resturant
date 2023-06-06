@@ -1,0 +1,6 @@
+C:\Users\aminm\source\repos\WindowsFormsApp1\Resturant\DAL\bin\Debug\DAL.dll
+C:\Users\aminm\source\repos\WindowsFormsApp1\Resturant\DAL\bin\Debug\DAL.pdb
+C:\Users\aminm\source\repos\WindowsFormsApp1\Resturant\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
+C:\Users\aminm\source\repos\WindowsFormsApp1\Resturant\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+C:\Users\aminm\source\repos\WindowsFormsApp1\Resturant\DAL\obj\Debug\DAL.dll
+C:\Users\aminm\source\repos\WindowsFormsApp1\Resturant\DAL\obj\Debug\DAL.pdb
